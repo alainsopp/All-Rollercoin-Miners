@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>RollerCoin miners - All miners</title>
+		<link rel="shortcut icon" href="./img/basic-miner.png">
+		<link href="./img/basic-miner.png" rel="icon" type="image/png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Rollercoin Miners, The most complete Rollercoin Miner search tool.">	
+		<link rel="stylesheet" href="./style/style.css">
+	</head>
+	<body>
+		<div class="header">
+			Rollercoin miners
+		</div>
+		<div class="main-area">
+			<div class="central-wrapper">				
+				<div id="minerTableDiv" class="minerTableDiv">
+					<div id="results-layout">
+						<div class="miner-count-wrapper">
+							<div class="miner-count-wrapper-image">
+								<img src="./img/basic-miner.svg" width="35" height="35" alt="basic miner">
+							</div>
+							<div id="miner-count-amount">
+							</div>							
+							<div class="result-layout-tile-title">
+								Miners listed
+							</div>
+						</div>						
+					</div>
+					<div class="search-filter-wrapper">
+					<input 
+						type="text" 
+						id="minerSearchInput" 
+						onkeyup="filterOnColumns('name')" 
+						placeholder="Search..." 
+						title="Type in miner"
+						class="input">
+						<div class="dropdown dropdown-less-more">
+							<input 
+								 type="text" 
+								 id="txtBxMrLss" 
+								 placeholder="Power: More - Less" 
+								 readonly>
+							<div class="option">
+								<div onclick="show('Power: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',2);">Power: More - Less</div>
+								<div onclick="show('Power: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',2);">Power: Less - More</div>
+								<div onclick="show('Bonus: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',3);">Bonus: More - Less</div>
+								<div onclick="show('Bonus: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',3);">Bonus: Less - More</div>
+							</div>
+						</div>						
+						<div class="dropdown dropdown-pagination">
+							<input 
+								 type="text" 
+								 id="txtBxPgntn" 
+								 placeholder="6" 
+								 readonly>
+							<div class="option">
+								<div onclick="show('6','txtBxPgntn');paginate(globalFilteredMinerArr,6);">6</div>
+								<div onclick="show('12','txtBxPgntn');paginate(globalFilteredMinerArr,12);">12</div>
+								<div onclick="show('24','txtBxPgntn');paginate(globalFilteredMinerArr,24);">24</div>								
+							</div>
+						</div>
+					</div>
+					<table id="minerTable" class="tableMiners">
+						<tr>
+							<th> Level </th>
+							<th> Miner </th>
+							<th> Power (Gh/s) </th>
+							<th> Bonus (%) </th>
+							<th> Cell(s) </th>
+							<th> Star(s) </th>      
+							<th>	</th>
+						</tr>
+					</table>
+					<div id="pagination" class="pagination">
+						<input class="pgnt-btn" type="button" id="firstPageButton" onclick="loadPage(globalFilteredMinerArr.length, 'first')" value="<<">
+						<input class="pgnt-btn" type="button" id="previousPageButton" onclick="loadPage(globalFilteredMinerArr.length, 'previous')" value="<"> 
+						<span class="pageNumber" id="pageNumber"></span>            
+						<input class="pgnt-btn" type="button" id="nextPageButton" onclick="loadPage(globalFilteredMinerArr.length, 'next');" value=">">
+						<input class="pgnt-btn" type="button" id="lastPageButton" onclick="loadPage(globalFilteredMinerArr.length,'last');" value=">>">
+					</div>					
+				</div>
+				<div class="filterDiv">											
+						<div id="powerDiv" class="filters-wrapper">
+							<p class="filter-title">Power (Gh/s):</p>
+							<input class="input" type="number" id="powerRangeLow" placeholder="0" title="Type in miner"> - 
+							<input class="input" type="number" id="powerRangeHigh" placeholder="100000" title="Type in miner">
+							<button class="triggerFilterButton" id="TriggerFilterPower" type="button" value="OK" 
+								onclick="filterOnColumns('power');">
+									OK
+							</button>
+						</div>
+						<div class="filters-wrapper">
+							<p class="filter-title">Bonus</p>
+							<input class="input" type="number" id="bonusRangeLow" placeholder="0" title="Type in bonus"> - 
+							<input class="input" type="number" id="bonusRangeHigh" placeholder="10" title="Type in bonus">
+							<button class="triggerFilterButton" id="TriggerFilterBonus" type="button" value="OK" 
+									onclick="filterOnColumns('bonus');">
+								OK
+							</button>
+						</div>
+						<div class="checkbox-wrapper">
+						<div class=" checkbox-filter"> 
+							<p class="filter-title">Cell count:</p>
+							<div><input class="checkbox checkboxCell" type="checkbox" id="1c" name="cellForm" value="oneCell" onchange="filterOnColumns('cells')">
+							<label for="1c"> 1 </label></div>
+							<div><input class="checkbox checkboxCell" type="checkbox" id="2c" name="cellForm" value="twoCells" onchange="filterOnColumns('cells')">
+							<label for="2c"> 2 </label></div>    
+						</div>
+						<div id="starDiv" class="checkbox-filter">
+							<p class="filter-title">Stars count:</p>
+							<div><input class="checkbox checkboxStar" type="checkbox" id="1s" name="stars" onchange="filterOnColumns('stars')">
+							<label for="1s"> 1 </label></div>
+							<div><input class="checkbox checkboxStar" type="checkbox" id="2s" name="stars" onchange="filterOnColumns('stars')">
+							<label for="2s"> 2 </label></div>
+							<div><input class="checkbox checkboxStar" type="checkbox" id="3s" name="stars" onchange="filterOnColumns('stars')">
+							<label for="3s"> 3 </label></div>
+							<div><input class="checkbox checkboxStar" type="checkbox" id="4s" name="stars" onchange="filterOnColumns('stars')">
+							<label for="4s"> 4 </label></div>
+							<div><input class="checkbox checkboxStar" type="checkbox" id="5s" name="stars" onchange="filterOnColumns('stars')">
+							<label for="5s"> 5 </label></div>
+						</div>
+						<div class=" checkbox-filter"> 
+							<p class="filter-title">Levels</p>
+							<div><input class="checkbox level" type="checkbox" id="I" name="level" onchange="filterOnColumns('levels')">
+							<label for="I"> 1 </label></div>
+							<div><input class="checkbox level" type="checkbox" id="II" name="level" onchange="filterOnColumns('levels')" >
+							<label for="II"> 2 </label></div>
+							<div><input class="checkbox level" type="checkbox" id="III" name="level" onchange="filterOnColumns('levels')" >
+							<label for="III"> 3 </label></div>
+							<div><input class="checkbox level" type="checkbox" id="IV" name="level" onchange="filterOnColumns('levels')" >
+							<label for="IV"> 4 </label></div>
+							<div><input class="checkbox level" type="checkbox" id="V" name="level" onchange="filterOnColumns('levels')" >
+							<label for="V"> 5 </label></div>
+							<div><input class="checkbox level" type="checkbox" id="VI" name="level" onchange="filterOnColumns('levels')" >
+							<label for="VI"> 6 </label></div>
+						</div>
+						</div>						
+						<div class="reset-button">
+							<button	class="reset" type="button" value="Go" onclick="clearFilters();">
+								Remove filters
+							</button>
+						</div>				
+				</div>
+			</div>	
+		</div>
+		<div class="footer-container">
+			<div class="footer-top">
+				<div class="table-bottom">
+					<table class="table-bottom-table">
+						<thead>
+							<tr class="table-header-block">
+								<th class="table-block-left">INFORMATION</th>
+								<th class="table-block-right">CONTACTS</th>
+							</tr>			
+						</thead>
+						<tbody>
+							<tr>
+								<td class="table-block-left table-bottom-body"><a href="#">How It Works</a></td>
+								<td class="table-block-right table-bottom-body">alain.sopp@protonmail.com</td>
+							<tr>
+						</tbody>
+					</table>
+				</div>				
+			</div>			
+			<div class="footer-bottom">
+				<div class="terms-service">
+					<p><a href="#">Privacy policy</a></p> 
+					<p>|</p>
+					<p><a href="#">Term of service</a></p> 
+					<p>|</p>
+					<p><a href="#">Disclaimer & User Warranties</a></p>
+				</div>
+				<div class="ligth-info">Additional information</div>
+			</div>
+		</div>
+		<script src="./script/script.js">	</script>
+	</body>
+</html>
