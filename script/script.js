@@ -305,7 +305,20 @@ I;Jungle King;16800;0.5;2;0;62d687ba81b1c8e692c19e43
 I;Snowster-9001;35400;0;2;0;6398e9e195b70ff678b1e56a
 I;Sweets Stealer;23200;0;2;0;6398e9e195b70ff678b1e56b
 I;Gingerbread House;22000;0;2;0;6398e9e195b70ff678b1e56e
-II;Uncommon Doggie-Woogie;105;0.14;1;0;6399c3331c483a58f70e9914`
+II;Uncommon Doggie-Woogie;105;0.14;1;0;6399c3331c483a58f70e9914
+I;Black Cat;50000;0;1;0;65326c3ea072ea9506f99ef5
+II;Uncommon Black Cat;131250;0.4;1;0;65326c3ea072ea9506f99ef8
+III;Rare Black Cat;344610;0.96;1;0;65326c3ea072ea9506f99f00
+I;Awaken;195000;0;2;0;65326c7ba072ea9506f99f68
+II;Uncommon Awaken;511875;0.4;2;0;65326c7ba072ea9506f99f6b
+I;Night Witnesses;240000;0;2;0;65326ca8a072ea9506f99fc0
+II;Uncommon Night Witnesses;630000;0.4;2;0;65326ca8a072ea9506f99fc3
+I;Heretic Opera Miner;580000;0.45;2;0;65326cd3a072ea9506f9a018
+I;Boogieman;870000;1;2;0;65326d03a072ea9506f9a09f
+II;Uncommon Boogieman;2283750;2.4;2;0;65326d03a072ea9506f9a0a2
+I;Booo!;1150000;1;2;0;65326d37a072ea9506f9a0f7
+II;Uncommon Booo!;3018750;2.4;2;0;65326d37a072ea9506f9a0fa
+I;Pumpkin King;1915000;1;2;0;65326d54a072ea9506f9a14f`
 
 class Pagination {
     constructor(currentPageNumber, itemPerPage, numberOfPages) {
@@ -427,6 +440,8 @@ function buildTable(m) {
                     img.src = imgUrl;
                     img.width = 63;
                     img.height = 50;
+                    img.alt = "Not Found" 
+                    img.onerror="img/basic-miner.svg';"
                     td.appendChild(img);
                 } else if (j == 2) {
                     td.appendChild(document.createTextNode(thousanize(m[i][j])));
