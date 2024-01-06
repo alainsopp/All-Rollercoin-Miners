@@ -25,6 +25,12 @@ Filtering on an exact miner level (i.e. level II) is not available neither.
 This application add additionnal filters on miner to allow players to search for a desired miner with more
 accuracy.  
 
+## Disclaimer
+
+As it is stated in the web site terms of use, it is prohibited to use any automated scripts,  
+bots, or other software to interact with the RollerCoin website.  
+https://rollercoin.com/terms
+
 ## Find a bug or want to improve?
 
 If you found an issue or would like to submit an improvement to this project,   
