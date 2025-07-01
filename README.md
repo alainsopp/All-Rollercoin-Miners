@@ -6,6 +6,10 @@
 
 **https://alainsopp.github.io/All-Rollercoin-Miners/**
 
+The project is now outdated.  
+Another user made a way more comprehensive website.  
+Go to https://minaryganar.com/miner/.  
+
 This application is intended to provide a complete list of all miners available in the game. 
 It comes with a capability of searching and filter on miners with more accuracy. 
 
@@ -39,7 +43,8 @@ If you would like to submit PR with a fix, reference the issue you created.
 
 ## Known issues (Work in progress)
 
-This project is still ongoing, especially the part with completing the list of all miners available in the game.
+This project is off because the list of miners is not comprehensive.  
+I created this project to compensate for the lack of feature of the site which has since been greatly improved.
 
 ## Referal program
 
