@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Rollercoin Miners, The most complete Rollercoin Miner search tool.">	
 		<link rel="stylesheet" href="./style/style.css">
+		<link rel="stylesheet" href="https://rchesapla.github.io/css/fonts.css">
 		<!-- Matomo -->
 		<script>
 		  var _paq = window._paq = window._paq || [];
@@ -25,7 +26,7 @@
 	</head>
 	<body>
 		<div class="header">
-			Rollercoin miners
+			RollerCoin Miner Listesi
 		</div>
 		<div class="main-area">
 			<div class="central-wrapper">				
@@ -38,7 +39,7 @@
 							<div id="miner-count-amount">
 							</div>							
 							<div class="result-layout-tile-title">
-								Miners listed
+								Miner Listelendi!
 							</div>
 						</div>						
 					</div>
@@ -47,20 +48,20 @@
 						type="text" 
 						id="minerSearchInput" 
 						onkeyup="filterOnColumns('name')" 
-						placeholder="Search..." 
+						placeholder="Örn: YMCA" 
 						title="Type in miner"
 						class="input">
 						<div class="dropdown dropdown-less-more">
 							<input 
 								 type="text" 
 								 id="txtBxMrLss" 
-								 placeholder="Power: More - Less" 
+								 placeholder="Lütfen seçiniz..." 
 								 readonly>
 							<div class="option">
-								<div onclick="show('Power: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',2);">Power: More - Less</div>
-								<div onclick="show('Power: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',2);">Power: Less - More</div>
-								<div onclick="show('Bonus: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',3);">Bonus: More - Less</div>
-								<div onclick="show('Bonus: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',3);">Bonus: Less - More</div>
+								<div onclick="show('Power: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',2);">Güç: Çoktan Az</div>
+								<div onclick="show('Power: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',2);">Güç: Azdan Çok</div>
+								<div onclick="show('Bonus: More - Less','txtBxMrLss');sortMiners(globalFilteredMinerArr,'desc',3);">Bonus: Çoktan Az</div>
+								<div onclick="show('Bonus: Less - More','txtBxMrLss');sortMiners(globalFilteredMinerArr,'asc',3);">Bonus: Azdan Çok</div>
 							</div>
 						</div>						
 						<div class="dropdown dropdown-pagination">
